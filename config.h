@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 2048
+#define MAXLEN 200
 
 /*
  * function            description                     argument (example)
@@ -65,8 +65,14 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	// function format          argument
-  { netspeed_rx, "|  %sB/s   ", "wlp0s20u4" },
-  { cpu_perc, "|  %s%%   ", NULL     },
-  { ram_perc, "|  %s%% |  ", NULL     },
-	{ datetime, "%s",           "%F %T" },
+  { separator,        "│ ",          NULL },
+  { run_command, "^c#8CC85F^ %s", "/home/beau/.github/dwmblocks/scripts/mpdsong" },
+  { separator,        "^c#B2B2B2^ │ ",          NULL },
+  { run_command, "^c#80A0FF^ %s%%", "/home/beau/.github/dwmblocks/scripts/volume" }, 
+  { separator,        " ^c#B2B2B2^│ ",          NULL },
+  { cpu_perc, "^c#E3C78A^ %s%%", NULL     },
+  { separator,        " ^c#B2B2B2^│ ",          NULL },
+  { ram_perc, "^c#FF5454^ %s%%", NULL     },
+  { separator,        " ^c#B2B2B2^│ ",          NULL },
+  { datetime, "^c#79DAC8^ %s",           "%F %T" },
 };
